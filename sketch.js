@@ -20,7 +20,7 @@ function draw() {
 }
   
 function geraRecomendaçao() {
-  
+  if 
 
 }
   
