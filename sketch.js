@@ -1,36 +1,53 @@
-// divertidamente, LIVRE-COMEDIA 
-// guardioes da galaxia,12-fantasia e AÇAO
-// shrek,LIVRE-COMEDIA
-// o rei leao,LIVRE-COMEDIA
-// o diario da tati,LIVRE-COMEDIA
-
-
-
-
-
+let campoIdade;
+let campoFantasia;
+let campoAventura;
 
 function setup() {
-    createCanvas(400, 400);
+  createCanvas(800, 400);
+  createElement("h2", "Recomendador de filmes");
+  createSpan("Sua idade:");
+  campoIdade = createInput("5");
+  campoFantasia = createCheckbox("Gosta de fantasia?");
+  campoAventura = createCheckbox("Gosta de aventura?");
 }
 
 function draw() {
-  background(220);
- let recomendaçao=geraRecomendaçao();
- text(recomendaçao, width / 2, height / 2);  
-}
-  
-function geraRecomendaçao() {
-  if 
+  background("blue");
+  let idade = campoIdade.value();
+  let gostaDeFantasia = campoFantasia.checked();
+  let gostaDeAventura = campoAventura.checked();
+  let recomendacao = geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura);
 
+  fill(color(76, 0, 115));
+  textAlign(CENTER, CENTER);
+  textSize(38);
+  text(recomendacao, width / 2, height / 2);
 }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+function geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura) {
+  if (idade >= 10) {
+    if (idade >= livre) {
+      return "O menino que descobriu o vento";
+    } else {
+      if (idade >= livre) {
+        if(gostaDeFantasia || gostaDeAventura) {
+          return "Homem-aranha:longe de casa";          
+        } else{
+         return "moana";
+        }
+      } else {
+        if (gostaDeFantasia) {
+          return "meu malvado favorito";
+        } else {
+          return "Depois da chuva";
+        }
+      }
+    }
+  } else {
+    if (gostaDeFantasia) {
+      return "A viagem de chihiro";
+    } else {
+      return "O feitiço do Tempo";
+    }
+  }
+}
